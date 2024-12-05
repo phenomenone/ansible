@@ -1,6 +1,6 @@
 ---
 - name: get service state
-  hosts: mc
+  hosts: ubuntu-test1
   become: yes
 
   tasks:
