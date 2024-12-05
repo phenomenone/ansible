@@ -1,0 +1,13 @@
+---
+- name: get service state
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Get uptime information
+      ansible.builtin.shell: /usr/bin/uptime
+      register: result
+    - name: Print return information from the previous task
+      ansible.builtin.debug:
+      var: result
+      verbosity: 2
