@@ -1,6 +1,6 @@
 ---
 - name: get service state
-  hosts: locale
+  hosts: mc
   become: yes
 
   tasks:
