@@ -1,6 +1,6 @@
 ---
 - name: get service state
-  hosts: localhost
+  hosts: locale
   become: yes
 
   tasks:
