@@ -1,7 +1,6 @@
 ---
 - name: get service state
   hosts: ubuntu-test1
-  become: yes
 
   tasks:
     - name: Print the gateway for each host when defined
