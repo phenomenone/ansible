@@ -4,10 +4,7 @@
   become: yes
 
   tasks:
-    - name: Get uptime information
-      shell: /usr/bin/uptime
-      register: result
-    - name: Print return information from the previous task
-      debug:
-        var: result
-        verbosity: 2
+    - name: Display all variables/facts known for a host
+      ansible.builtin.debug:
+        var: hostvars[inventory_hostname]
+        verbosity: 4
