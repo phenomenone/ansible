@@ -3,8 +3,5 @@
    hosts: windows11-test1
    
    tasks:
-   - name: Facts
-     setup:
-   - name: Dump
-     debug:
-       msg: "{{ hostvars[inventory_hostname] | to_nice_json }}"
+     - name: run the setup facts
+       ansible.windows.setup:
