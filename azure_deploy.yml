@@ -3,6 +3,8 @@
   hosts: localhost
   collections:
    - azure.azcollection
+  vars:
+    user_id: test-account
   tasks:
 
   - name: Create user
