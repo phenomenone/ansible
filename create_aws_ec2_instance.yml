@@ -57,7 +57,7 @@
             Environment: Testing
 
       # Always require the 'create_ec2' tag to provision EC2 instance
-      tags: ['never', 'create_ec2'] 
+      # tags: ['never', 'create_ec2'] 
 
     - name: Facts
       block: # this block prints out instance data
@@ -73,4 +73,4 @@
         debug:
           msg: "ID: {{ item.instance_id }} - State: {{ item.state.name }} - Public DNS: {{ item.public_dns_name }}"
         loop: "{{ result.instances }}"
-      tags: always
+      #tags: always
