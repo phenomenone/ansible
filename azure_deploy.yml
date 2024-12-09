@@ -5,6 +5,8 @@
    - azure.azcollection
   vars:
     user_id: test-account
+    user_principal_name: ed
+    object_id: 87677
   tasks:
 
   - name: Create user
