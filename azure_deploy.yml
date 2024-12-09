@@ -1,7 +1,8 @@
 ---
 - name: create resources to build a VM
   hosts: localhost
-  
+  collections:
+   - azure.azcollection
   tasks:
 
   - name: Create storage account
