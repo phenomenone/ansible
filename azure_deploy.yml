@@ -5,65 +5,23 @@
    - azure.azcollection
   tasks:
 
-  - name: Create storage account
-    azure_rm_storageaccount:
-      resource_group: Testing
-      name: 123ansibledemo123
-      account_type: Standard_LRS
-
-  - name: Create virtual network
-    azure_rm_virtualnetwork:
-      resource_group: Testing
-      name: testvn001
-      address_prefixes: "10.10.0.0/16"
-
-  - name: Add subnet
-    azure_rm_subnet:
-      resource_group: Testing
-      name: subnet001
-      address_prefix: "10.10.0.0/24"
-      virtual_network: testvn001
-
-  - name: Create public ip
-    azure_rm_publicipaddress:
-      resource_group: Testing
-      allocation_method: Static
-      name: publicip001
-
-  - name: Create security group that allows SSH
-    azure_rm_securitygroup:
-      resource_group: Testing
-      name: secgroup001
-      rules:
-        - name: SSH
-          protocol: Tcp
-          destination_port_range: 22
-          access: Allow
-          priority: 101
-          direction: Inbound
-
-  - name: Create NIC
-    azure_rm_networkinterface:
-      resource_group: Testing
-      name: testnic001
-      virtual_network: testvn001
-      subnet: subnet001
-      public_ip_name: publicip001
-      security_group: secgroup001
-
-  - name: Create virtual machine
-    azure_rm_virtualmachine:
-      resource_group: Testing
-      name: testvm001
-      vm_size: Standard_B1s
-      storage_account: 123ansibledemo123
-      storage_container: testvm001
-      storage_blob: testvm001.vhd
-      admin_username: youtubedemo
-      admin_password: Password123123
-      network_interfaces: testnic001
-      image:
-        offer: CentOS
-        publisher: OpenLogic
-        sku: '7.1'
-        version: latest
+ - name: Create user
+   azure_rm_aduser:
+     user_principal_name: "{{ user_id }}"
+     state: "present"
+     account_enabled: "True"
+     display_name: "Test_{{ user_principal_name }}_Display_Name"
+     password_profile: "password"
+     mail_nickname: "Test_{{ user_principal_name }}_mail_nickname"
+     on_premises_immutable_id: "{{ object_id }}"
+     given_name: "First"
+     surname: "Last"
+     user_type: "Member"
+     usage_location: "US"
+     mail: "{{ user_principal_name }}@contoso.com"
+     mobile_phone: "+1234567890123"
+     company_name: 'Test Company'
+     on_premises_extension_attributes:
+       extension_attribute1: "test_extension_attribute1"
+       extension_attribute2: "test_extension_attribute2"
+       extension_attribute11: "test_extension_attribute11"
