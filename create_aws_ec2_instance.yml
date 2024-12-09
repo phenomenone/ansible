@@ -5,7 +5,7 @@
   gather_facts: False
 
   vars:
-    key_name: AWX_KEY             # Key used for SSH
+    key_name: "{{ lookup('env', 'AWX_KEY') }}"    # Key used for SSH
     region: use2-az1       # Region may affect response and pricing
     image: ami-0c80e2b6ccb9ad6d1 # look in ec2 > ami (filter owner alias: amazon) or amis of manually launched instances
     id: "example testing"
