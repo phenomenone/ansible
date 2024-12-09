@@ -14,15 +14,16 @@
     sec_group: "test-security-group"
 
   tasks:
-- name: start an instance and Add EBS
-  amazon.aws.ec2_instance:
-    name: "Awx-test-instance"
-    vpc_subnet_id: subnet-5ca1ab1e
-    instance_type: "{{ instance_type }}"
-    key_name: " {{ key_name }}"
-    security_group: "{{ sec_group }}"
-    volumes:
-      - device_name: /dev/sda1
-        ebs:
-          volume_size: 16
-          delete_on_termination: true
+  - name: start an instance with a public IP address
+    amazon.aws.ec2_instance:
+      name: "test-awx-server"
+      key_name: "{{ AWX_KEY }}"
+      vpc_subnet_id: subnet-5ca1ab1e
+      instance_type: "{{ instance_type }}"
+      security_group: "{{ sec_group }}"
+      network_interfaces:
+        - assign_public_ip: true
+      image_id: "{{ image }}"
+      tags:
+        Environment: Testing
+
