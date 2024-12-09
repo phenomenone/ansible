@@ -3,5 +3,6 @@
    hosts: windows11-test1
    
    tasks:
-     - name: run the setup facts
-       ansible.windows.setup:
+     - name: Get info all services starting with 'Win'
+       win_service_info:
+         name: win*
