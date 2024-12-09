@@ -17,7 +17,7 @@
   - name: start an instance with a public IP address
     amazon.aws.ec2_instance:
       name: "test-awx-server"
-      key_name: "{{ AWX_KEY }}"
+      key_name: "{{ key_name }}"
       vpc_subnet_id: subnet-5ca1ab1e
       instance_type: "{{ instance_type }}"
       security_group: "{{ sec_group }}"
