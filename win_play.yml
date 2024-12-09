@@ -3,6 +3,7 @@
    hosts: windows11-test1
    
    tasks:
-     - name: Get info all services starting with 'Win'
-       win_service_info:
-         name: win*
+   - name: Restart a service
+     ansible.windows.win_service:
+       name: spooler
+       state: restarted
