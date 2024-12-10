@@ -12,7 +12,8 @@
     instance_type: t2.nano       # Choose instance type, check AWS for pricing
     # vpc_id: subnet-012345
     sec_group: "test-security-group"
-
+  debug:
+    msg: "This is the Key Name -> {{ key_name }}" 
   tasks:
   - name: start an instance with a public IP address
     amazon.aws.ec2_instance:
