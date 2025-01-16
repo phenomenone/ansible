@@ -11,3 +11,6 @@
    - name: Print out var_three
      debug:
        msg: "{{ var_three }}"
+
+   - name: Windows ping 
+     win_ping:
