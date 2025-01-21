@@ -1,11 +1,8 @@
 ---
-- name: Dump
-  hosts: Windows-node1
-  var: ansible_facts
-  tasks:
-  - name: Restart a service
-    win_ping:
+- name: get service state
+  hosts: all
 
-  - name: Print facts
-    debug:
-      msg: THis are {{ ansible_facts }}
+  tasks:
+    - name: Print the gateway for each host when defined
+      ansible.builtin.debug:
+        msg: System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}
