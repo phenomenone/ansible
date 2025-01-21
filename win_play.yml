@@ -5,3 +5,7 @@
    tasks:
    - name: Restart a service
      win_ping:
+
+   - name: Print facts
+     debug:
+       var: ansible_facts
