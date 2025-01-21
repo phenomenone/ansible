@@ -1,1 +1,7 @@
 ---
+ - name: Test
+   hosts: Linux_node1
+   
+   tasks:
+   - name: ping test
+     ping:
