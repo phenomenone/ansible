@@ -1,11 +1,11 @@
 ---
- - name: Dump
-   hosts: Windows-node1
-   
-   tasks:
-   - name: Restart a service
-     win_ping:
+- name: Dump
+  hosts: Windows-node1
+  var: ansible_facts
+  tasks:
+  - name: Restart a service
+    win_ping:
 
-   - name: Print facts
-     debug:
-       var: ansible_facts
+  - name: Print facts
+    debug:
+      msg: THis are {{ ansible_facts }}
