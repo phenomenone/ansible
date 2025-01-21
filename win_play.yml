@@ -1,6 +1,6 @@
 ---
  - name: Dump
-   hosts: windows11-test1
+   hosts: Windows-node1
    
    tasks:
    - name: Restart a service
