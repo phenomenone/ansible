@@ -6,7 +6,9 @@
     - name: Print the gateway for each host when defined
       ansible.builtin.debug:
         msg: System {{ ansible_facts | to_nice_yaml }}
-    - name: Install git
-      win_chocolatey:
-        name: git
+    - name: Install 7zip and use a file version for the installation check
+      ansible.windows.win_package:
+        path: C:\temp\7z.exe
+        creates_path: C:\Program Files\7-Zip\7z.exe
+        creates_version: 16.04
         state: present
