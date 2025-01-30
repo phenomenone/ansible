@@ -6,12 +6,16 @@
     - name: Print the gateway for each host when defined
       ansible.builtin.debug:
         msg: System {{ ansible_facts | to_nice_yaml }}
-    - name: Download earthrise.jpg to specified path
-      ansible.windows.win_get_url:
+    - name: Create directory structure
+      win_file:
+        path: C:\Temp\
+        state: directory
+    - name: Download 7zip to specified path
+      win_get_url:
         url: https://www.7-zip.org/a/7z2409-arm64.exe
         dest: C:\temp\7z.exe
     - name: Install 7zip and use a file version for the installation check
-      ansible.windows.win_package:
-        path: C:\temp\7z.exe
+      win_package:
+        path: C:\Temp\7z.exe
         creates_path: C:\Program Files\7-Zip\7z.exe
         state: present
