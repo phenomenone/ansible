@@ -1,4 +1,8 @@
 ---
+- name: send mail notif
+  hosts: localhost
+tasks:
+
 - name: Example playbook sending mail to root
   mail:
     subject: System {{ ansible_hostname }} PING has Failed.
