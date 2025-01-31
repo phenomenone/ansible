@@ -1,0 +1,6 @@
+- name: Windoows ping
+  hosts: Windows_node1
+
+  tasks:
+    - name: Print the gateway for each host when defined
+      win_ping:
