@@ -3,7 +3,10 @@
   hosts: localhost
 tasks:
 
-- name: Example playbook sending mail to root
+- name: Sending an e-mail using the remote machine, not the Ansible controller node
   mail:
-    subject: System {{ ansible_hostname }} PING has Failed.
-  delegate_to: localhost
+    host: localhost
+    port: 25
+    to: John Smith <eeca@outlook.com>
+    subject: Ansible Failure Report
+    body: System {{ ansible_hostname }} failed ping.
