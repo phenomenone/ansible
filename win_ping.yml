@@ -4,3 +4,4 @@
   tasks:
     - name: Print the gateway for each host when defined
       win_ping:
+        data: crash
