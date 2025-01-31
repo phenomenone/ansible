@@ -1,12 +1,12 @@
 ---
 - name: send mail notif
   hosts: localhost
-tasks:
-
-- name: Sending an e-mail using the remote machine, not the Ansible controller node
-  mail:
-    host: localhost
-    port: 25
-    to: John Smith <eeca@outlook.com>
-    subject: Ansible Failure Report
-    body: System {{ ansible_hostname }} failed ping.
+  tasks:
+  
+  - name: Sending an e-mail using the remote machine, not the Ansible controller node
+    mail:
+      host: localhost
+      port: 25
+      to: John Smith <eeca@outlook.com>
+      subject: Ansible Failure Report
+      body: System {{ ansible_hostname }} failed ping.
