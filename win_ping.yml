@@ -1,7 +1,11 @@
 - name: Windoows ping
   hosts: Windows_node1
-
+  vars:
+    test_url: "https://{{ ansible_host }}/Tcs.ServicioConfiguracion.WS/ConfiguracionCentralizada.asmx"
+  
   tasks:
     - name: Print the gateway for each host when defined
       win_ping:
-        data: crash
+    - name: Print URL
+      debug:
+        var: test_url
