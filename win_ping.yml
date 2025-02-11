@@ -7,7 +7,7 @@
   tasks:
     - name: Print the gateway for each host when defined
       win_ping:
-    - debug: var: test_url1
-    - debug: var: test_url2
-    - debug: var: test_url3
+    - debug: var=test_url1
+    - debug: var=test_url2
+    - debug: var=test_url3
     
