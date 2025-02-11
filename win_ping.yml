@@ -1,7 +1,7 @@
 - name: Windoows ping
   hosts: Windows_node1
   vars:
-    test_url: "https://{{ ansible_host }}/Tthis.is.theurl.butlon.asmx"
+    test_url: "https://{{ ansible_hostname }}/Tthis.is.theurl.butlon.asmx"
   
   tasks:
     - name: Print the gateway for each host when defined
